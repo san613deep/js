@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color Changer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 30px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #start {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #stop {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.85;
+        }
+
+        #colorCode {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Random Color Changer</h1>
+
+        <p>Click Start to change the background color.</p>
+
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+
+        <div id="colorCode">Current Color: #212121</div>
+    </div>
+
+    <script>
+
+        // STEP 1: Generate a random color
+
+        const randomColor = function () {
+
+            const hex = '0123456789ABCDEF';
+
+            let color = '#';
+
+            for (let i = 0; i < 6; i++) {
+
+                color += hex[Math.floor(Math.random() * 16)];
+
+            }
+
+            return color;
+        };
+
+
+        // STEP 2: Declare interval variable
+
+        let intervalId = null;
+
+
+        // STEP 3: Start changing background color
+
+        const startChangingColor = function () {
+
+            if (intervalId === null) {
+
+                intervalId = setInterval(changeBgColor, 1000);
+
+            }
+
+
+            // Function to change background color
+
+            function changeBgColor() {
+
+                const newColor = randomColor();
+
+                document.body.style.backgroundColor = newColor;
+
+                document.querySelector('#colorCode').textContent =
+                    'Current Color: ' + newColor;
+
+            }
+
+        };
+
+
+        // STEP 4: Stop changing background color
+
+        const stopChangingColor = function () {
+
+            clearInterval(intervalId);
+
+            intervalId = null;
+
+        };
+
+
+        // STEP 5: Add click event listeners
+
+        document.querySelector('#start').addEventListener(
+            'click',
+            startChangingColor
+        );
+
+        document.querySelector('#stop').addEventListener(
+            'click',
+            stopChangingColor
+        );
+
+    </script>
+
+</body>
+</html>
