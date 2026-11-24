@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 500px;
+    max-width: 90%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.container > p {
+    margin-bottom: 10px;
+}
+
+form {
+    margin: 25px 0;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#guessField {
+    padding: 10px;
+    width: 200px;
+    font-size: 18px;
+}
+
+#subt {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.resultParas {
+    margin-top: 20px;
+}
+
+.resultParas p {
+    margin: 12px 0;
+}
+
+.lowOrHi {
+    font-weight: bold;
+    font-size: 20px;
+}
